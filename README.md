@@ -4,6 +4,25 @@ This is a fork waiting for some PRs to be merged on origin and the new version r
 
 The repo is public, so don't put internal stuff in it, like urls etc.
 
+# How to keep it up to date with upstream ?
+
+When upstream is performing a mew release, we should strive to keep this fork up to date with our patches.
+To do so, just follow these steps:
+* update your local clone to fetch the latest commits on upstream
+* checkout the tag you want to perform a release for as a new branch, e.g. for 1.2.3, execute `git checkout -b branch_v_1.2.3 v_1.2.3`
+* if necessary get the branches from our forks
+** git checkout -b obourgain-configure_logback_access_from_system_property master && git pull https://github.com/obourgain/logback.git configure_logback_access_from_system_property
+** git checkout -b nmaupu-syslog-for-access master && git pull https://github.com/nmaupu/logback.git syslog-for-access
+**
+* cherry-pick the the commits we want to apply, here is a list of those at the time of writing:
+** e7ffa44ea347ea43e18bf56a12443c2ef0a1445a Update readme
+** 7a1b9d9bfdf50960ce446887a8d77ffb2545cbda Added the ability to log to syslog for access
+** 6f4dbb97efce4c6e89fe5a167ba65e2d33cfa5f4 Configure logback-access from system property
+* you do not need to update master
+
+Then you can perform a release. The Mirakl release named must be the same as the source logback release, with a -mirakl qualifier.
+You should create a tag named like the one of the source release, with -mirakl appended. E.g. for the version 1.2.3, the tag is v_1.2.3 so our release is v_1.2.3-mirakl
+
 #About logback
 
 Thank you for your interest in logback, the reliable, generic, fast
