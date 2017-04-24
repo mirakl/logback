@@ -1,3 +1,8 @@
+### WARNING ###
+
+This is a fork waiting for some PRs to be merged on origin and the new version released, it will be deleted after.
+
+The repo is public, so don't put internal stuff in it, like urls etc.
 
 #About logback
 
